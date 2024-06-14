@@ -3,7 +3,7 @@
 
 ```
 # Completar con dirección donde despĺegaron en Render.com
-https://{miproyecto}.onrender.com
+https://two024-tp-entrega-3-gastonpaz.onrender.com
 ```
 
 Template para TP DDS 2024 - Entrega 3
