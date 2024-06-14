@@ -7,8 +7,9 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>ar.edu.utn.dds.k3003</groupId>
-  <artifactId>my-app-name</artifactId>
+  <artifactId>myapp</artifactId>
   <version>1.0-SNAPSHOT</version>
+  <packaging>jar</packaging>
 
   <properties>
     <maven.compiler.source>17</maven.compiler.source>
@@ -16,9 +17,48 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
     <!-- Dependencies versions -->
+    <javalin.version>5.6.5</javalin.version>
     <junit.version>5.10.2</junit.version>
     <mockito.version>5.11.0</mockito.version>
+    <retrofit.version>2.11.0</retrofit.version>
+    <slf4j.version>2.0.13</slf4j.version>
+    <hibernate.version>5.6.15.Final</hibernate.version>
+    <postgresql.version>42.5.0</postgresql.version>
+    <javax.persistence.version>2.2</javax.persistence.version>
   </properties>
+
+  <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.1.0</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <mainClass>main.java.ar.edu.utn.dds.k3003.app.WebApp</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>3.2.4</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                        <configuration>
+                            <createDependencyReducedPom>false</createDependencyReducedPom>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 
   <dependencies>
     <!-- Libs -->
@@ -41,12 +81,59 @@
       <artifactId>mockito-core</artifactId>
       <version>${mockito.version}</version>
     </dependency>
+    
+    <dependency>
+      <groupId>io.javalin</groupId>
+      <artifactId>javalin</artifactId>
+      <version>${javalin.version}</version>
+    </dependency>
 
+    <dependency>
+      <groupId>com.squareup.retrofit2</groupId>
+      <artifactId>retrofit</artifactId>
+      <version>${retrofit.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.squareup.retrofit2</groupId>
+      <artifactId>converter-jackson</artifactId>
+      <version>${retrofit.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-simple</artifactId>
+      <version>${slf4j.version}</version>
+    </dependency>
+    
     <dependency>
       <groupId>com.github.ezequieljsosa</groupId>
       <artifactId>dds-eval-tp2024</artifactId>
       <version>0.0.22</version>
-	      
+    </dependency>
+
+    <dependency>
+        <groupId>org.hibernate</groupId>
+        <artifactId>hibernate-core</artifactId>
+        <version>${hibernate.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-entitymanager</artifactId>
+      <version>${hibernate.version}</version>
+    </dependency>
+    
+    <dependency>
+      <groupId>org.postgresql</groupId>
+      <artifactId>postgresql</artifactId>
+      <version>${postgresql.version}</version>
+      <scope>runtime</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>javax.persistence</groupId>
+      <artifactId>javax.persistence-api</artifactId>
+      <version>${javax.persistence.version}</version>
     </dependency>
 
   </dependencies>

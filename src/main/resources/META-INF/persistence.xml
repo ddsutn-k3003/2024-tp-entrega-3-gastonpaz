@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence" version="2.2">
+    <persistence-unit name="dds">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <class>ar.edu.utn.dds.k3003.model.Heladera</class>
+        <class>ar.edu.utn.dds.k3003.model.Operacion</class>
+        <class>ar.edu.utn.dds.k3003.model.Temperatura</class>
+        <properties>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>
+            <property name="hibernate.connection.driver_class" value="org.postgresql.Driver"/>
+            <property name="hibernate.connection.url" value="jdbc:postgresql://dpg-cpm9qatds78s73aetgt0-a.oregon-postgres.render.com/dds_xj53"/>
+            <property name="hibernate.connection.username" value="dds"/>
+            <property name="hibernate.connection.password" value="vOfROz9PJ0erkqR0QMar9AxWlc6VUjQI"/>
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
+        </properties>
+    </persistence-unit>
+</persistence>
