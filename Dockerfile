@@ -12,7 +12,7 @@ FROM openjdk:17-jdk-slim
 WORKDIR /app
 COPY --from=build /app/target/myapp-1.0-SNAPSHOT.jar /app/myapp.jar
 EXPOSE 8080
-ENTRYPOINT ["java","-jar","/app/myapp.jar"]
+ENTRYPOINT ["java","-cp","/app/myapp.jar","main.java.ar.edu.utn.dds.k3003.app.WebApp"]
 
 
 
