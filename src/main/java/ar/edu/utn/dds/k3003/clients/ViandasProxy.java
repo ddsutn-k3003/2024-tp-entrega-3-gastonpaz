@@ -20,7 +20,7 @@ public class ViandasProxy implements FachadaViandas {
   public ViandasProxy(ObjectMapper objectMapper) {
 
     var env = System.getenv();
-    this.endpoint = env.getOrDefault("URL_VIANDAS", "http://localhost:8081/");
+    this.endpoint = env.getOrDefault("URL_VIANDAS", "https://two024-tp-entrega-3-manuverger.onrender.com");
 
     
     var retrofit =
@@ -29,8 +29,8 @@ public class ViandasProxy implements FachadaViandas {
             .addConverterFactory(JacksonConverterFactory.create(objectMapper))
             .build();
 
-    //this.service = retrofit.create(ViandasRetrofitClient.class);
-    this.service = new MockViandasRetrofitClient();
+    this.service = retrofit.create(ViandasRetrofitClient.class);
+    //this.service = new MockViandasRetrofitClient();
   }
 
   @Override
